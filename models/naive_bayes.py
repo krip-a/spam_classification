@@ -1,5 +1,5 @@
 from sklearn.naive_bayes import MultinomialNB
 
 def create_model():
-    model = MultinomialNB()         #() mandatory
+    model = MultinomialNB()
     return model

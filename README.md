@@ -1,7 +1,10 @@
 # Spam Classification using Machine Learning
 
 ## Overview
-This project classifies emails as spam or ham using a Multinomial Naive Bayes Classifier
+This project classifies emails as spam or ham using 
+- Naive Bayes (multinomial Classifier)
+- Logistic Regression
+- Linear SVM
 
 # Dataset
 https://www.kaggle.com/datasets/venky73/spam-mails-dataset/data
@@ -20,4 +23,6 @@ Predict New Emails
 - Scikit-learn
 
 ## Results
-Accuracy of Naive Bayes: 97%
+Accuracy of Naive Bayes: 92.4%
+Accuracy of Logistic regression: 92.4%
+Accuracy of Linear SVM: 92.4%

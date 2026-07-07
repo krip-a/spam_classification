@@ -1,6 +1,4 @@
-from models.naive_bayes import create_model
 
-def train(X_train, y_train):
-    model = create_model()
+def train(model, X_train, y_train):
     model.fit(X_train, y_train)
     return model

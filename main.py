@@ -4,18 +4,44 @@ from src.train import train
 from src.evaluate import evaluate
 from src.predict import predict_email
 from src.model_selection import get_models
+from models.svm import create_model             #chose svm (highest f1)
+
+import pandas as pd
+
 
 def main():
     df = load_data()
     X_train, X_test, y_train, y_test, vectorizer = preprocess(df)
 
+    results = []
     models = get_models()
+
     for name, model in models.items():
-        model = train(X_train, y_train)
-        evaluate(model, X_test, y_test, name)
+        model = train(model, X_train, y_train)
 
-    print()
+        predictions, accuracy, precision, recall, f1 = evaluate(
+            model, 
+            X_test, 
+            y_test, 
+            name)
+        
+        results.append({
+            "Model": name,
+            "Accuracy": accuracy,
+            "Precision": precision,
+            "Recall": recall,
+            "F1": f1
+        })
 
+    results_df = pd.DataFrame(results)
+    print(results_df)
+
+    final_model = create_model()
+    final_model = train(
+        final_model, 
+        X_train,
+        y_train
+    )
     #new_email = input("Enter email to detect spam or ham: ")
 
     predict_email(

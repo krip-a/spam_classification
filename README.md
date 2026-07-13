@@ -21,7 +21,7 @@ The dataset contains labeled email messages categorized as:
 ## Setup and Installation
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/krip-a/spam_classification.git] (https://github.com/krip-a/spam_classification.git)
+git clone [https://github.com/krip-a/spam_classification.git](https://github.com/krip-a/spam_classification.git)
 cd spam_classification
 ```
 ### 2. Set Up a Virtual Environment
@@ -56,24 +56,14 @@ Prediction is: 1- SPAM
 Enter email to detect spam or ham: Hey, are we still meeting at the library at 3 PM?
 Prediction is: 0- HAM
 ```
-```markdown
+
 ## Pipeline
-Load Dataset ->
-Train/Test split ->
-TF-IDF Vectorization ->
-Train models ->
-Evaluate using accuracy, Precision, Recall, F1-score ->
-Select best performing model ->
-Predict New Emails
-```
-```markdown
-1. **Data Ingestion (`load_data.py`)**: Loads the raw CSV file, removes arbitrary index columns, and handles missing data.
-2. **Text Processing (`preprocess.py`)**: Executes an 80/20 train/test split and transforms raw text into mathematical vectors via TF-IDF weights.
-3. **Model Selection & Benchmarking (`model_selection.py`, `train.py`)**: Iterates through Naive Bayes, Logistic Regression, and Linear SVM to evaluate cross-performance.
-4. **Evaluation & Debugging (`evaluate.py`, `error_analysis.py`)**: Reports classification metrics and extracts misclassified samples for model transparency.
-5. **Serialization (`save_model.py`)**: Saves the vectorizer and optimal trained model as portable `.pkl` binaries.
-6. **Inference App (`predict_app.py`)**: Loads the stored artifacts to provide zero-latency, command-line predictions on unseen text inputs.
-```
+1. Data Loading (`load_data.py`): Loads the raw CSV file, removes arbitrary index columns, and handles missing data.
+2. Text Processing (`preprocess.py`): Executes an 80/20 train/test split and transforms raw text into mathematical vectors via TF-IDF weights.
+3. Model Selection & Benchmarking (`model_selection.py`, `train.py`): Iterates through Naive Bayes, Logistic Regression, and Linear SVM to evaluate cross-performance.
+4. Evaluation & Debugging (`evaluate.py`, `error_analysis.py`): Reports classification metrics and extracts misclassified samples for model transparency.
+5. Serialization (`save_model.py`): Saves the vectorizer and optimal trained model as portable `.pkl` binaries.
+6. Inference App (`predict_app.py`): Loads the stored artifacts to provide zero-latency, command-line predictions on unseen text inputs.
 
 ## Technologies
 - Python

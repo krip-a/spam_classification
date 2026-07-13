@@ -45,3 +45,7 @@ Predict New Emails
 Linear SVM achieved the highest F1-score among the evaluated models and was selected as the final classifier
 
 ## Future Improvements
+- Deploy the spam classifier using Flask or FastAPI
+- Experiment with word embeddings and transformer-based models
+- Perform hyperparameter tuning to improve model performance
+- Add a web interface for real-time email classification

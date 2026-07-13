@@ -26,8 +26,8 @@ def main():
         _, accuracy, precision, recall, f1 = evaluate(
             model, 
             X_test_vec, 
-            y_test, 
-            name)
+            y_test
+            )
         
         results.append({
             "Model": name,

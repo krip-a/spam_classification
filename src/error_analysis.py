@@ -10,4 +10,5 @@ def analyze_errors(X_test, y_test, predictions):
         print("-" * 80)
         print("Actual: ", actual)
         print("Predicted: ", predicted)
+        print("Email:")
         print(email)

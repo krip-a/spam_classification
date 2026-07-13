@@ -1,6 +1,6 @@
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-def evaluate(model, X_test, y_test, model_name):
+def evaluate(model, X_test, y_test):
     predictions = model.predict(X_test)             #what the model predicts
     
     accuracy = accuracy_score(y_test, predictions)

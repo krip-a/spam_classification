@@ -1,23 +1,61 @@
 # Spam Classification using Machine Learning
 
 ## Overview
-This project classifies emails as spam or ham using natural language processing and supervised machine learning techniques
+This project classifies emails as spam or ham using Natural Language Processing (NLP) and supervised machine learning techniques
 
-The project compares three machine learning models:
+The project compares three classification algorithms:
 - Multinomial Naive Bayes
 - Logistic Regression
 - Linear Support Vector Machine (SVM)
 
-It uses TF-IDF vectorization to convert email text into numerical features before classification
+It uses TF-IDF vectorization to convert email text into numerical features before classification. Linear SVM achieves the best performance with an F1-score of 0.983 and was selected as the final model.
 
-# Dataset
-
+## Dataset
 Dataset used:
-https://www.kaggle.com/datasets/venky73/spam-mails-dataset/data
+[Kaggle Spam Mails Dataset](https://www.kaggle.com/datasets/venky73/spam-mails-dataset/data)
 
-The dataset contains leabeled email messages categorized as:
+The dataset contains labeled email messages categorized as:
 - Ham (not Spam) (0)
 - Spam (1)
+
+## Setup and Installation
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/krip-a/spam_classification.git] (https://github.com/krip-a/spam_classification.git)
+cd spam_classification
+```
+### 2. Set Up a Virtual Environment
+``` bash 
+python -m venv .venv
+```
+    Windows: .venv\Scripts\activate
+    macOS/Linux: source .venv/bin/activate
+### 3. Install DEpendencies
+```bash
+pip install pandas scikit-learn joblib
+```
+### 4. Dataset Placement
+Create a data/ directory at the root of the project and place the downloaded spam_ham_dataset.csv inside it.
+
+## How to Run and Demo
+### 1. Train and Evaluate Models
+To train the models, view comparative metrics, and save the final Linear SVM model:
+```bash
+python main.py
+```
+### 2. Run Interactive Inference (Demo)
+To test the saved model interactively with your own custom email strings:
+```bash
+python predict_app.py
+```
+Example Demo output:
+Plaintext
+Enter email to detect spam or ham: Congratulations! You've won a free $1000 Walmart gift card. Click here to claim now!
+Prediction is: 1- SPAM
+
+Enter email to detect spam or ham: Hey, are we still meeting at the library at 3 PM?
+Prediction is: 0- HAM
+
 
 ## Pipeline
 Load Dataset ->
@@ -28,11 +66,12 @@ Evaluate using accuracy, Precision, Recall, F1-score ->
 Select best performing model ->
 Predict New Emails
 
-# Technologies
+## Technologies
 - Python
 - Pandas
 - Scikit-learn
 - TF-IDF Vectorization
+
 
 ## Models Evaluated
 |                 Model | Accuracy  | Precision| Recall   |    F1    |

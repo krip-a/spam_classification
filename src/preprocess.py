@@ -28,7 +28,8 @@ def preprocess(df):
 
     return (
         X_train_vec, 
-        X_test_vec, 
+        X_test_vec,
+        X_test, 
         y_train, 
         y_test, 
         vectorizer

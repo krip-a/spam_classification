@@ -4,24 +4,28 @@ from src.train import train
 from src.evaluate import evaluate
 from src.predict import predict_email
 from src.model_selection import get_models
-from models.svm import create_model             #chose svm (highest f1)
+from src.error_analysis import analyze_errors
+from sklearn.svm import LinearSVC           #Linear SVM chosen based on highest f1-score
+from src.save_model import save_model
 
 import pandas as pd
 
 
 def main():
     df = load_data()
-    X_train, X_test, y_train, y_test, vectorizer = preprocess(df)
+    #X_test is original X
+    X_train_vec, X_test_vec, X_test, y_train, y_test, vectorizer = preprocess(df)
 
     results = []
-    models = get_models()
+    models = get_models()       #selecting from 3 models
 
+    # Training each model and evaluating prediction metrics
     for name, model in models.items():
-        model = train(model, X_train, y_train)
+        model = train(model, X_train_vec, y_train)
 
-        predictions, accuracy, precision, recall, f1 = evaluate(
+        _, accuracy, precision, recall, f1 = evaluate(
             model, 
-            X_test, 
+            X_test_vec, 
             y_test, 
             name)
         
@@ -35,19 +39,32 @@ def main():
 
     results_df = pd.DataFrame(results)
     print(results_df)
-
-    final_model = create_model()
+    
+    #Linear SVM is the final model chosen
+    final_model = LinearSVC()
     final_model = train(
         final_model, 
-        X_train,
+        X_train_vec,
         y_train
     )
-    #new_email = input("Enter email to detect spam or ham: ")
 
+    #Saving trained LinearSVM and vectorizer
+    save_model(final_model, vectorizer)
+
+    #Error Analysis
+    predictions = final_model.predict(X_test_vec)
+    analyze_errors(
+        X_test,
+        y_test,
+        predictions
+    )
+
+    #Predicting Spam or Ham for new entered email
+    new_email = input("\n\nEnter email to detect spam or ham: ")
     predict_email(
-        model, 
+        final_model, 
         vectorizer,
-        "Congratulations! You have won a free iPhone! click here."
+        new_email
     )
 
 if __name__ == "__main__":      #"if this file is run directly, execute main() function"

@@ -21,7 +21,7 @@ The dataset contains labeled email messages categorized as:
 ## Setup and Installation
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/krip-a/spam_classification.git](https://github.com/krip-a/spam_classification.git)
+git clone https://github.com/krip-a/spam_classification.git
 cd spam_classification
 ```
 ### 2. Set Up a Virtual Environment

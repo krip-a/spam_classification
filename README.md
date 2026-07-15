@@ -30,9 +30,9 @@ python -m venv .venv
 ```
     Windows: .venv\Scripts\activate
     macOS/Linux: source .venv/bin/activate
-### 3. Install DEpendencies
+### 3. Install Dependencies
 ```bash
-pip install pandas scikit-learn joblib
+pip install -r requirements.txt
 ```
 ### 4. Dataset Placement
 Create a data/ directory at the root of the project and place the downloaded spam_ham_dataset.csv inside it.
